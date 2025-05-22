@@ -8,7 +8,7 @@ double dostresh(double x) {
 }
 
 double f(double x) {
-    return -6 * x - cos(x);
+    return -6 * x + cos(x);
 }
 
 vector<double> mgrid(int n) {
@@ -79,7 +79,7 @@ void errors(const vector<double>& y, const vector<double>& x, int n, double& cer
 
     lerr = sqrt(lerr / (n + 1));
 }
-void solve(vector<double> &cv, vector<double> &lv,int n) {
+void solve(vector<double>& cv, vector<double>& lv, int n) {
     double a = dostresh(0.0);
     double b = dostresh(1.0);
     vector<double> x = mgrid(n);
@@ -101,7 +101,7 @@ int main() {
     int n;
     vector<double> cv;
     vector<double> lv;
-    for (n = 16; n <= 30000; n*=8)
+    for (n = 16; n <= 30000; n *= 8)
     {
         solve(cv, lv, n);
     }
@@ -110,7 +110,7 @@ int main() {
         cout << n << " ";
     }
     cout << endl;
-    for (n = 0; n < cv.size(); n ++)
+    for (n = 0; n < cv.size(); n++)
     {
         cout << cv[n] << " ";
     }
